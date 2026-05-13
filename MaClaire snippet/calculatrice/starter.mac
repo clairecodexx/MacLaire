@@ -1,0 +1,51 @@
+execute {self}
+existe a
+existe b
+existe temp
+existe resultat
+onTrue 1 == 1 do : /
+imprimate <"-------------------------------------------">
+imprimate <"    BIENVENUE DANS LE CALCULATEUR MACLAIRE ">
+imprimate <"-------------------------------------------">
+choise < variable / int > with message <"Entrez le premier chiffre : "> give to a
+choise < variable / int > with message <"Entrez le deuxieme chiffre : "> give to b
+imprimate <"CHOISISSEZ UNE OPERATION :">
+imprimate <"1. Addition (+)">
+imprimate <"2. Soustraction (-)">
+imprimate <"3. Multiplication (*)">
+imprimate <"4. Division (/)">
+imprimate <"0. Quitter le programme">
+choise < variable / int > with message <"Votre choix : "> give to temp
+check temp == 0 do /
+imprimate <"Fermeture de l'instance.">
+variable$crush a
+variable$crush b
+variable$empty temp
+/
+no check but check temp == 1 do /
+resultat give to a + b
+imprimate <"Resultat : ">
+imprimate$variable resultat
+/
+no check but check temp == 2 do /
+resultat give to a - b
+imprimate <"Resultat : ">
+imprimate$variable resultat
+/
+no check but check temp == 3 do /
+resultat give to a * b
+imprimate <"Resultat : ">
+imprimate$variable resultat
+/
+no check but check temp == 4 do /
+check b == 0 do /
+imprimate <"Erreur : Division par zero.">
+/
+absolute no check do /
+resultat give to a / b
+imprimate <"Resultat : ">
+imprimate$variable resultat
+/
+/
+variable$empty resultat
+/
